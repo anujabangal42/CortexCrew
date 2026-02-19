@@ -3,6 +3,12 @@
 Multi-city Hackathon • RIFT 2026 • HealthTech Track  
 Track: Pharmacogenomics / Explainable AI  
 
+Team Members:
+1. Shruti Jalkote
+2. Anuja Bangal
+3. Supriya Ankush
+4. Pranjal Aher
+
 ---
 
 ## Live Demo
