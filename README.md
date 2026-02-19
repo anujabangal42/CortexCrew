@@ -1,4 +1,4 @@
-# PharmaGuard – Pharmacogenomic Risk Prediction System
+# CortexCrew – Pharmacogenomic Risk Prediction System
 
 Multi-city Hackathon • RIFT 2026 • HealthTech Track  
 Track: Pharmacogenomics / Explainable AI  
@@ -7,7 +7,7 @@ Track: Pharmacogenomics / Explainable AI
 
 ## Live Demo
 
-🔗 Hosted Application: https://your-render-url.onrender.com  
+🔗 Hosted Application: https://cortexcrew.onrender.com  
 🎥 Demo Video (LinkedIn): https://linkedin.com/your-demo-link  
 
 ---
@@ -79,21 +79,25 @@ Structured JSON Output
 
 ---
 
-##  Project Structure
+## Project Structure
 
-PharmaGuard/
+```
+CortexCrew/
 │
 ├── app.py
 ├── requirements.txt
 ├── README.md
-├── .env
+├── render.yaml
+├── .gitignore
+├── .env (not tracked in git)
 │
 ├── templates/
 │ └── index.html
 │
 └── static/
-└── style.css
-└── app.js
+    ├── style.css
+    └── app.js
+```
 
 
 ---
@@ -114,8 +118,7 @@ PharmaGuard/
 
 ### 2️⃣ Drug Name Input
 
-Supported Drugs:
-
+**Supported Drugs:**
 - CODEINE
 - WARFARIN
 - CLOPIDOGREL
@@ -123,7 +126,7 @@ Supported Drugs:
 - AZATHIOPRINE
 - FLUOROURACIL
 
-Supports:
+**Supports:**
 - Single drug
 - Multiple drugs (comma-separated)
 
@@ -135,42 +138,52 @@ The application returns structured JSON in this exact format:
 
 ```json
 {
-  "patient_id": "PATIENT_XXX",
-  "drug": "DRUG_NAME",
-  "timestamp": "ISO8601_timestamp",
-  "risk_assessment": {
-    "risk_label": "Safe|Adjust Dosage|Toxic|Ineffective|Unknown",
-    "confidence_score": 0.0,
-    "severity": "none|low|moderate|high|critical"
-  },
-  "pharmacogenomic_profile": {
-    "primary_gene": "GENE_SYMBOL",
-    "diplotype": "*X/*Y",
-    "phenotype": "PM|IM|NM|RM|URM|Unknown",
-    "detected_variants": [
-      { "rsid": "rsXXXX" }
-    ]
-  },
-  "clinical_recommendation": {
-    "recommended_action": "Text recommendation",
-    "guideline_source": "CPIC 2023"
-  },
-  "llm_generated_explanation": {
-    "summary": "AI-generated clinical explanation"
-  },
-  "quality_metrics": {
-    "vcf_parsing_success": true,
-    "variant_count": 2
-  }
+  "results": [
+    {
+      "patient_id": "PATIENT_XXX",
+      "drug": "DRUG_NAME",
+      "timestamp": "ISO8601_timestamp",
+      "risk_assessment": {
+        "risk_label": "Safe|Toxic|Ineffective|Unknown",
+        "confidence_score": 0.0,
+        "severity": "low|moderate|high|critical"
+      },
+      "pharmacogenomic_profile": {
+        "primary_gene": "GENE_SYMBOL",
+        "diplotype": "*X/*Y",
+        "phenotype": "PM|IM|NM|RM|URM|Unknown",
+        "detected_variants": [
+          { "rsid": "rsXXXX" }
+        ]
+      },
+      "clinical_recommendation": {
+        "recommended_action": "Text recommendation"
+      },
+      "llm_generated_explanation": {
+        "summary": "AI-generated clinical explanation"
+      },
+      "quality_metrics": {
+        "vcf_parsing_success": true
+      }
+    }
+  ]
 }
-'''
+```
 ---
 ## API Documentation
 
+### POST `/analyze`
+
+**Endpoint:** `/analyze`  
+**Method:** `POST`  
+**Content-Type:** `multipart/form-data`
+
 | Field     | Type               | Required | Description |
-|-----------|--------------------|----------|------------|
-| `vcf_file` | File (`.vcf`)      | Yes   | Variant Call Format file (VCF v4.2, max 5MB) |
-| `drugs`   | String (comma-separated) | Yes   | Drug names separated by commas (e.g., `CODEINE,WARFARIN`) |
+|-----------|--------------------|----------|-------------|
+| `vcf_file` | File (`.vcf`)      | Yes      | Variant Call Format file (VCF v4.2, max 5MB) |
+| `drugs`   | String (comma-separated) | Yes      | Drug names separated by commas (e.g., `CODEINE,WARFARIN`) |
+
+**Response:** JSON object with `results` array containing risk assessments for each drug.
 
 ---
 
@@ -178,59 +191,91 @@ The application returns structured JSON in this exact format:
 ## Installation Guide
 
 1️⃣ Clone Repository
-git clone https://github.com/your-username/PharmaGuard.git
-cd PharmaGuard
+```bash
+git clone https://github.com/anujabangal42/CortexCrew.git
+cd CortexCrew
+```
 
 2️⃣ Create Virtual Environment
 
-Windows:
+**Windows:**
+```bash
+python -m venv .venv
+.venv\Scripts\activate
+```
 
-python -m venv myenv
-myenv\Scripts\activate
-
-
-Mac/Linux:
-
-python3 -m venv myenv
-source myenv/bin/activate
+**Mac/Linux:**
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
 
 3️⃣ Install Dependencies
+```bash
 pip install -r requirements.txt
+```
 
 4️⃣ Configure Environment Variables
 
-Create .env file:
-
+Create `.env` file in the root directory:
+```env
 OPENROUTER_API_KEY=your_openrouter_key
+```
 
 5️⃣ Run Application
+```bash
 python app.py
-
+```
 
 Open in browser:
-
+```
 http://127.0.0.1:5000
+```
 
 ---
 ## Deployment on Render
 
-Push project to GitHub
+1️⃣ **Push project to GitHub**
+   - Repository: https://github.com/anujabangal42/CortexCrew
 
-Go to Render
+2️⃣ **Go to [Render.com](https://render.com)**
+   - Sign in with your GitHub account
 
-Create new Web Service
+3️⃣ **Create new Web Service**
+   - Click **New** → **Web Service**
+   - Connect your GitHub account and select the **CortexCrew** repository
 
-Connect GitHub repo
+4️⃣ **Configure Settings**
+   - Render will auto-detect `render.yaml` configuration
+   - If configuring manually:
+     - **Build Command:** `pip install -r requirements.txt`
+     - **Start Command:** `gunicorn -w 2 -b 0.0.0.0:$PORT app:app`
 
-Set:
+5️⃣ **Add Environment Variable**
+   - **Key:** `OPENROUTER_API_KEY`
+   - **Value:** Your OpenRouter API key (from your `.env` file)
 
-Build Command: pip install -r requirements.txt
+6️⃣ **Deploy**
+   - Click **Create Web Service**
+   - Wait for deployment to complete
+   - Your app will be available at `https://cortexcrew.onrender.com`
 
-Start Command: python app.py
+---
 
-Add environment variable:
+## Contributing
 
-OPENROUTER_API_KEY
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-Deploy
+---
+
+## License
+
+This project is part of the RIFT 2026 Hackathon submission.
+
+---
+
+## Author
+
+**Anuja Bangal**
+- GitHub: [@anujabangal42](https://github.com/anujabangal42)
 
