@@ -163,7 +163,7 @@ The application returns structured JSON in this exact format:
     "variant_count": 2
   }
 }
-'''json
+'''
 ---
 ## API Documentation
 
