@@ -7,8 +7,8 @@ Track: Pharmacogenomics / Explainable AI
 
 ## Live Demo
 
-🔗 Hosted Application: https://cortexcrew.onrender.com  
-🎥 Demo Video (LinkedIn): https://linkedin.com/your-demo-link  
+Hosted Application: [https://cortexcrew.onrender.com](https://cortexcrew.onrender.com)  
+Demo Video (LinkedIn): https://linkedin.com/your-demo-link  
 
 ---
 
