@@ -1,0 +1,67 @@
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.title {
+    text-align: center;
+    font-size: 38px;
+    font-weight: bold;
+    color: #0d6efd;
+    background-color: #eaf4ff;   /* faint blue */
+    padding: 15px;
+    border-radius: 8px;
+    width: fit-content;
+    margin: 30px auto;
+}
+
+.border-dashed {
+  border-style: dashed !important;
+}
+
+.risk-badge {
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.risk-safe {
+  background-color: #e6f4ea;
+  color: #137333;
+}
+
+.risk-adjust {
+  background-color: #fff4ce;
+  color: #8a6d1d;
+}
+
+.risk-toxic,
+.risk-ineffective {
+  background-color: #fce8e6;
+  color: #c5221f;
+}
+
+.risk-unknown {
+  background-color: #e0e0e0;
+  color: #3c4043;
+}
+
+.severity-chip {
+  font-size: 0.75rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #f1f3f4;
+}
+
+.json-block {
+  background-color: #111827;
+  color: #e5e7eb;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.8rem;
+  max-height: 260px;
+  overflow: auto;
+}
+
