@@ -14,7 +14,7 @@ Team Members:
 ## Live Demo
 
 Hosted Application: [https://cortexcrew.onrender.com](https://cortexcrew.onrender.com)  
-Demo Video (LinkedIn): https://www.linkedin.com/posts/anuja-bangal-b556aa287_rift2026-rfit-healthtech-ugcPost-7430438171320127488-YUwt?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEWxK_EBQHEOJyDrty8wvTquab4WUCo5iEg 
+Demo Video (LinkedIn):https://www.linkedin.com/posts/shruti-jalkote-9460bb266_rift2026-hackathon-healthtech-ugcPost-7430432694938902528-tN3C?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEWxK_EBQHEOJyDrty8wvTquab4WUCo5iEg 
 
 ---
 
